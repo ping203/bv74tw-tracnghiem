@@ -1,0 +1,373 @@
+body, img, fieldset, form
+{    margin: 0;    padding: 0;    border: 0;}
+body, select, textarea, input{    font-size: 12px;    font-family: Arial, Tahoma, Verdana, sans-serif;    color: #303030;    line-height: 16px;}
+body{    text-align: center;}
+a{    color: #444;    text-decoration: none;}
+a:hover{   color: #FF6600;  text-decoration: none; }
+p { margin: 0px 0px 0px 0px;}
+.w960 { width:960;}
+.pdl5 {padding-left: 5px; }
+.pdl15{ padding-left:15px;}
+.pdl25{ padding-left:25px;}
+
+.pdl60 {padding-left: 60px; }
+.pdl160 {padding-left:160px;}
+.pdr5 { padding-right:5px;}
+.pdr25 {padding-right:25px; }
+.mgr50 {margin-right:50px;}
+
+.ol { overflow:hidden;}
+.fl { float:left;}
+
+
+.fz12 {font-size:12px;}
+.fz16 {font-size:16px;}
+.fz18 {font-size:18px;}
+.fz20 {font-size:20px;}
+.lh20 { line-height:20px; }
+.lh25 {line-height:25px;}
+.lh110 {line-height:110px;}
+
+.w32 {width:32px;}
+.w50 {width:50px;}
+.w100 {width: 100px; }
+.w250 {width: 250px; }
+.w500 {width: 500px; }
+.w702 { width:702px;}
+.h16 {height:16px;}
+.h120 { height:120px;}
+.clf0 {color:#ff0000;}
+.fwb {font-weight:bold;}
+.bd1555 {border: 1px solid #555;}
+.clear{ clear:both;}
+
+.main{    width: 100%;    text-align: center;}
+.header{  height:40px;   line-height:35px;}
+
+
+.viewq { height:85px; }
+.viewq li{ background: url('/Content/Images/livq.jpg') left no-repeat; height:32px; width:32px; float: left;list-style-type:none;text-align:center; line-height:30px; margin-right:5px;margin-bottom:5px;
+    font-weight: bold; color:#fff;
+     }
+.viewq li:hover{ background: url('/Content/Images/livqac.jpg') left no-repeat; height:32px; width:32px; float: left;list-style-type:none;text-align:center; line-height:30px; margin-right:5px;margin-bottom:5px;
+    font-weight: bold;
+     }
+.viewq li:hover a{ color:#fff;  }
+.viewq li:active{ background: url('/Content/Images/livqac.jpg') left no-repeat; height:32px; width:32px; float: left;list-style-type:none;text-align:center; line-height:30px; margin-right:5px;margin-bottom:5px;
+    font-weight: bold;
+     }
+.viewq ul{}
+.image_language { cursor:pointer;}
+.ndpa {padding-left:40px; color:#0066FF; font-weight:bold;}
+
+
+.fromregedit label {float: left;      text-align: left; width:90px; }
+.fromregedit p {float: none;    padding-top: 15px; overflow:hidden; }
+.requided { color: #FF0000;    float: left;    padding-left: 7px;    padding-top: 3px;    width: 20px;}
+#TestLeft{
+  overflow: hidden;
+  width: 20%;
+  position: fixed;
+  margin-right: 0;
+}
+#TestRight{
+  width: 80%;
+  float: right;
+}
+
+div#TestRight div 
+{
+      padding: 15px 0;
+    overflow: hidden;
+}
+
+div#TestRight div label 
+{
+   text-align: left;
+}
+
+div.wrap
+{
+  width: 100%;
+  height: 100%;
+}
+
+.wrap-index {
+  background: url(/Content/Images/bgbody.jpg) 50% 0% / cover no-repeat;
+  width: 100%;
+  height: 100%;
+  position: relative;
+    overflow-x: hidden;
+} 
+
+html { height: 100%; }
+body {  height: 100%; }
+
+.advtop img {width:100%;}
+
+.fromregedit p input
+{
+    max-width:290px;
+    width:100%;
+}
+
+.fromregedit form {
+  max-width: 400px;
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.fromregedit {
+  margin-top: 30px;
+}
+
+.heading-h3 h3 {
+  color: #3328FF !important;
+  text-align: center;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.fromregedit label {
+  float: left;
+  text-align: left;
+  width: 90px;
+  font-size: 14px;
+  color: #000;
+  font-weight: bold;
+}
+
+.fromregedit p input {
+  max-width: 290px;
+  width: 100%;
+  border: 1px solid #69BEBE;
+  height: 26px;
+  line-height: 26px;
+  padding-left: 5px;
+  font-size: 14px;
+}
+
+.button-large {
+  float: left;
+  margin-left: 90px;
+}
+
+.button-large input {
+  margin-top: 20px;
+  display: inline-block;
+  background: #2450FF;
+  border: 0;
+  padding: 10px 20px;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.button-large input:hover,.bdt-ok input:hover {
+  background: #0022A8;
+}
+
+.validation-summary-errors {
+  font-size: 14px;
+}
+
+.footer p {
+  font-size: 13px;
+  color: rgb(0, 0, 0);
+  padding:10px 0;
+}
+
+.footer 
+{
+    position:absolute;
+    width:100%;
+    bottom:0;
+    }
+    
+    div.banner 
+    {
+       background:url('/Content/Images/banner.png') no-repeat top center;
+        height: 128px;
+         width: 100%;
+     }
+     
+     .fromregedit {
+  text-align: left;
+}
+
+.fromregedit h2 , .fromregedit h3{
+  color: #424551;
+}
+
+.fromregedit h3 span {
+  color: #132ADF;
+}
+
+.fromregedit h3 span.kq-ok {
+  color: #D22024;
+}
+
+.fromregedit form h4 {
+  text-align: left;
+  color: #424551;
+  font-size: 14px;
+}
+
+.bdt-ok {
+  text-align: left;
+  position: relative;
+  max-width: 150px;
+}
+
+.bdt-ok input {
+  display: inline-block;
+  background: #2450FF;
+  border: 0;
+  padding: 10px 20px;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  width: 100%;
+}
+
+.bdt-ok:after {
+  content: ">>";
+  font-size: 16px;
+  color: #fff;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 5px;
+}
+
+h3.test-fix {
+  color: #3328FF !important;
+  text-align: center;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+span.blue-ok {
+  color: #132ADF;
+}
+
+span.red-ok {
+  color: #D22024;
+}
+
+div#hourLeft {
+  margin-left: 20px;
+}
+
+.fromregedit h2 {
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  color: #3328FF !important;
+  text-align: center;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+div#TestWrapper {
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+div#TestRight p label input {
+  max-width: initial;
+  width: auto;
+  border: 0;
+  height: auto;
+  line-height: initial;
+  padding: 0;
+}
+
+div#TestRight label {
+  width: 100%;
+  font-weight: normal;
+  color: #000;
+  font-size: 13px;
+  vertical-align: top;
+  display: inline-block;
+}
+
+div#ListQuestion ul li {
+  color: #132ADF;
+}
+
+.nop-bai a {
+  display: inline-block;
+  background: #FF952B;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  font-weight: bold;
+  margin: 10px 0 0 36px;
+}
+
+.nop-bai a:hover
+{
+    background:#F07800; 
+}
+
+.fromregedit {
+  max-width: 960px;
+  margin: auto;
+  margin-top: 30px;
+  width: 100%;
+}
+
+p.checkbox-fix input {
+  max-width: initial;
+  height: auto;
+  padding: 0;
+  width: auto;
+  float: left;
+  border: 0;
+}
+
+.create-thi .editor-label {
+  text-align: left;
+  font-size: 13px;
+  color: #000;
+  padding-bottom: 5px;
+}
+
+.create-thi .editor-field input {
+  width: 100%;
+  border: 1px solid #69BEBE;
+  height: 26px;
+  line-height: 26px;
+  padding-left: 5px;
+  font-size: 14px;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.button-large.fix-create-thi {
+  margin: 0;
+   float: right;
+}
+
+.back-link {
+  float: left;
+  margin-top: 20px;
+}
+
+.back-link a {
+  color: #132ADF;
+  font-size: 14px;
+}
+
+.back-link a:hover
+{   
+    color:#0014B8;
+    
+ }
+ 

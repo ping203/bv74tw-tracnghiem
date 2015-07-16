@@ -1,0 +1,106 @@
+div.wrapper-admin
+{
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.col-md-9 h2
+{
+    color: #3328FF !important;
+    text-align: center;
+    font-size: 24px;
+    line-height: 30px;
+}
+
+.col-md-3.left-admin
+{
+    padding-top: 100px;
+}
+
+.header.w960.ol.pdl25
+{
+    float: right;
+    max-width: 1200px;
+    width: 100%;
+    text-align: right;
+    padding: 0 30px;
+}
+span.text-red
+{
+    color: Red;
+}
+
+.col-md-3.left-admin ul li
+{
+    list-style: none;
+    padding: 5px 0;
+}
+
+.col-md-3.left-admin ul li a
+{
+    color: #132ADF;
+}
+
+.col-md-9.right-admin > a
+{
+    margin-bottom: 20px;
+}
+
+.col-md-9.right-admin form > a
+{
+    margin-bottom: 20px;
+}
+
+.col-md-9.right-admin form li a
+{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    margin-bottom: 20px;
+}
+
+.col-md-9.right-admin form li
+{
+    list-style: none;
+}
+
+.col-md-9.right-admin form li a:hover
+{
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
+    text-decoration: none;
+}
+
+.col-md-3.left-admin ul li a.admin-active
+{
+    color: Red;
+}
+
+.deleteItemAnswer
+{
+    position: absolute;
+    right: -20px;
+    top: 10px;
+}

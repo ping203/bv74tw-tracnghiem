@@ -1,0 +1,37 @@
+﻿@{ Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using MVC_CMS.Models;
+@using MvcPaging;
+@model TN_Question
+<h2>
+    Thêm mới câu hỏi</h2>
+<script type="text/javascript" src="@Url.Content("~/Scripts/ckeditor/ckeditor.js")"></script>
+@using (Html.BeginForm(null, null, new { IsMultiChoose = true }, FormMethod.Post))
+{ 
+    <div>
+        <p>
+            @Html.ValidationSummary(true, "Tạo chưa thành công. Vui lòng kiểm tra và thử lại.")
+        </p>
+        <div class="form-group">
+            <label>
+                Nội dung câu hỏi:</label>
+            @Html.TextAreaFor(m => m.Content, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Content)
+        </div>
+        <div class="form-group">
+            <label>
+                Loại câu hỏi:</label>
+            <select name="Type" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+            @Html.ValidationMessageFor(m => m.Content)
+        </div>
+        <input type="submit" value="Tạo câu hỏi" class="btn btn-primary" />
+        @Html.ActionLink("Trở lại danh sách", "Index", null, new { @class = "btn btn-default" })
+    </div> 
+}

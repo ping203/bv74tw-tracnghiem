@@ -1,0 +1,32 @@
+﻿@model TN_Exam
+@using MVC_CMS.Models;
+@using MVC_CMS.Controllers;
+@if (Model != null)
+{
+    using (Html.BeginForm())
+    {
+        var user = (TN_User)Session[SessionKey.UserObject];
+    <div>
+        <h3 class="test-fix">@Model.Content</h3>
+        <h4>
+            Số lượng câu hỏi: <span class="red-ok">@Model.QuestionCount</span></h4>
+        <h4>
+            Thời gian thi: <span class="red-ok">@Model.Time (phút)</span></h4>
+        <h4>
+            Hình thức thi: <span class="blue-ok">Trắc nghiệm</span></h4>
+        <h4>
+            Họ tên: <span class="blue-ok">@user.FullName</span></h4>
+        <h4>
+            Số báo danh: <span class="blue-ok">@user.SBD</span></h4>
+    </div>
+    
+    <div class="bdt-ok">
+    <input type="submit" name="submit" value="Bắt đầu thi" />
+    </div> 
+    }
+}
+else
+{
+    <h3>
+        Hiện tại không có cuộc thi nào</h3>
+}

@@ -1,0 +1,53 @@
+﻿@{ Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model List<MVC_CMS.Models.TN_Exam>
+<h2>
+    Thêm câu hỏi - đáp án cho cuộc thi từ file excel</h2>
+@if (ViewBag.Success != null && (bool)ViewBag.Success)
+{
+    <h3>
+        Thêm dữ liệu thành công.</h3>
+}
+@if (Model.Count > 0)
+{
+    using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data", onsubmit = "return openFile();" }))
+    {
+        
+    <div class="form-group">
+        <label>
+            Chọn cuộc thi:
+        </label>
+        <select name="examID" class="form-control">
+            @foreach (var item in Model)
+            {
+                <option value="@item.ID">@item.Content</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="InputFile">
+            Đường dẫn file excel</label>
+        <input type="file" name="file" id="InputFile">
+    </div>
+    <input type="submit" name="submit" value="Thực hiện" class="btn btn-primary" />
+    
+    }
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        
+
+    });
+
+    function openFile() {
+        var file = $("#InputFile").val();        
+        var extension = file.substr((file.lastIndexOf('.') + 1));
+        if (extension == 'xlsx') {
+            return true;
+        }
+        alert("Chúng tôi chỉ hỗ trợ định dạng file: *.xlsx");
+        return false;
+    };
+</script>
+<br />
+@Html.ActionLink("Trở lại danh sách", "Index", null, new { @class = "btn btn-default" })

@@ -1,0 +1,92 @@
+﻿@{ Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+   }
+@using MVC_CMS.Models;
+@using MvcPaging;
+@model IPagedList<TN_Exam>
+<h2>
+    Quản lý cuộc thi</h2>
+<a href="@Url.Action("Create", "Exam")" class="btn btn-primary" ><span class="glyphicon glyphicon-plus"></span> Thêm cuộc thi</a>
+@if (Model != null && Model.Count > 0)
+{
+    
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    Tên cuộc thi
+                </th>
+                @*<th>
+                    Ngày bắt đầu
+                </th>
+                <th>
+                    Ngày kết thúc
+                </th>*@
+                <th>
+                    Số lượng câu hỏi
+                </th>
+                <th>
+                    Thời gian thi (phút)
+                </th>
+                <th>
+                    Trạng thái cuộc thi
+                </th>
+                <th>
+                    Thao tác
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{int count = 0; foreach (TN_Exam exam in Model)
+              { 
+                <tr>
+                    <td>
+                        @Html.Raw(exam.Content)
+                    </td>
+                    @*<td>
+                        @Html.Encode(exam.StartDate.ToString("dd/MM/yyyy"))
+                    </td>
+                    <td>
+                        @Html.Encode(exam.EndDate.ToString("dd/MM/yyyy"))
+                    </td>*@
+                    <td>
+                        @Html.Encode(exam.QuestionCount)
+                    </td>
+                    <td>
+                        @Html.Encode(exam.Time)
+                    </td>
+                    <td>
+                        @(exam.IsActive ? "Đã kích hoạt" : "Chưa kích hoạt")
+                    </td>
+                    <td>
+                        <a href='@Url.Action("Edit", "Exam", new { id = exam.ID })'>Sửa</a>
+                        | <a onclick="return confirm('Bạn có muốn xóa cuộc thi này không?');" href='@Url.Action("Delete", "Exam", new { id = exam.ID })'><span class="text-red">Xóa</span></a>
+                        @if (!exam.IsActive)
+                        {
+                            <span>| <a href="#" onclick="setActiveExam(@exam.ID);">Kích hoạt</a></span>   
+                        }
+                    </td>
+                </tr>
+              }
+            }
+        </tbody>
+    </table>
+    <p class="pager">
+        @Html.Raw(Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount))
+    </p>
+}
+else
+{
+   
+    <p>
+        Không có cuộc thi nào</p>
+}
+<script type="text/javascript">
+    function setActiveExam(id) {
+        $.get("@Url.Action("SetActive","Exam")", { id: id })
+          .done(function (data) {
+              alert(data);
+              location.href = "";
+          });
+        return false;
+    }    
+</script>

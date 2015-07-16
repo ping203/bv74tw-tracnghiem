@@ -1,0 +1,51 @@
+﻿@{ Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using MVC_CMS.Models;
+@using MVC_CMS.Controllers;
+@using MvcPaging;
+@model IPagedList<TN_Question>
+<h2>
+    Quản lý câu hỏi</h2>
+<h3 style="color: Red">@ViewBag.Success</h3>
+@using (Html.BeginForm("Create", "Question", FormMethod.Get))
+{
+    <a href="@Url.Action("Create", "Question")" class="btn btn-primary"><span class="glyphicon glyphicon-plus">
+    </span>Thêm câu hỏi</a>
+    <li>@Html.ActionLink("Thêm từ excel", "CreateQuestionFromExcelFile", "Question")</li>
+}
+@if (Model != null && Model.Count > 0)
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    Nội dung câu hỏi
+                </th>
+                <th style="width:78px;">
+                    Thao tác
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{int count = 0; foreach (TN_Question question in Model)
+              {
+                <tr>
+                    <td>
+                        @Html.Raw(question.Content.Replace("img", "img_question"))
+                    </td>
+                    <td>
+                        <a href='@Url.Action("Edit", "Question", new { id = question.ID })'>Sửa</a> | <a onclick="return confirm('Bạn có muốn xóa câu hỏi này không?');" href='@Url.Action("Delete", "Question", new { id = question.ID })'>
+                            Xóa</a>
+                    </td>
+                </tr>
+              }}
+        </tbody>
+    </table>
+    <p class="pager">
+        @Html.Raw(Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount))
+    </p>
+}
+else
+{<p>
+    Không có câu hỏi nào
+    </p>}

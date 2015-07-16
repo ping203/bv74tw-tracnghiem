@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="KetQua" msprop:Generator_TableClassName="KetQuaDataTable" msprop:Generator_TableVarName="tableKetQua" msprop:Generator_RowChangedName="KetQuaRowChanged" msprop:Generator_TablePropName="KetQua" msprop:Generator_RowDeletingName="KetQuaRowDeleting" msprop:Generator_RowChangingName="KetQuaRowChanging" msprop:Generator_RowEvHandlerName="KetQuaRowChangeEventHandler" msprop:Generator_RowDeletedName="KetQuaRowDeleted" msprop:Generator_RowClassName="KetQuaRow" msprop:Generator_UserTableName="KetQua" msprop:Generator_RowEvArgName="KetQuaRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CauHoi" msprop:Generator_ColumnVarNameInTable="columnCauHoi" msprop:Generator_ColumnPropNameInRow="CauHoi" msprop:Generator_ColumnPropNameInTable="CauHoiColumn" msprop:Generator_UserColumnName="CauHoi" type="xs:string" minOccurs="0" />
+              <xs:element name="TraLoi" msprop:Generator_ColumnVarNameInTable="columnTraLoi" msprop:Generator_ColumnPropNameInRow="TraLoi" msprop:Generator_ColumnPropNameInTable="TraLoiColumn" msprop:Generator_UserColumnName="TraLoi" type="xs:string" minOccurs="0" />
+              <xs:element name="DapAn" msprop:Generator_ColumnVarNameInTable="columnDapAn" msprop:Generator_ColumnPropNameInRow="DapAn" msprop:Generator_ColumnPropNameInTable="DapAnColumn" msprop:Generator_UserColumnName="DapAn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BCTH" msprop:Generator_TableClassName="BCTHDataTable" msprop:Generator_TableVarName="tableBCTH" msprop:Generator_TablePropName="BCTH" msprop:Generator_RowDeletingName="BCTHRowDeleting" msprop:Generator_RowChangingName="BCTHRowChanging" msprop:Generator_RowEvHandlerName="BCTHRowChangeEventHandler" msprop:Generator_RowDeletedName="BCTHRowDeleted" msprop:Generator_UserTableName="BCTH" msprop:Generator_RowChangedName="BCTHRowChanged" msprop:Generator_RowEvArgName="BCTHRowChangeEvent" msprop:Generator_RowClassName="BCTHRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="HoTen" msprop:Generator_ColumnVarNameInTable="columnHoTen" msprop:Generator_ColumnPropNameInRow="HoTen" msprop:Generator_ColumnPropNameInTable="HoTenColumn" msprop:Generator_UserColumnName="HoTen" type="xs:string" minOccurs="0" />
+              <xs:element name="SBD" msprop:Generator_ColumnVarNameInTable="columnSBD" msprop:Generator_ColumnPropNameInRow="SBD" msprop:Generator_ColumnPropNameInTable="SBDColumn" msprop:Generator_UserColumnName="SBD" type="xs:string" minOccurs="0" />
+              <xs:element name="KetQua" msprop:Generator_ColumnVarNameInTable="columnKetQua" msprop:Generator_ColumnPropNameInRow="KetQua" msprop:Generator_ColumnPropNameInTable="KetQuaColumn" msprop:Generator_UserColumnName="KetQua" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

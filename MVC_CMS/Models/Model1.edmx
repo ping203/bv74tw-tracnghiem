@@ -1,0 +1,768 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TRACNGHIEMModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="TRACNGHIEMModelStoreContainer">
+          <EntitySet Name="aspnet_Membership" EntityType="TRACNGHIEMModel.Store.aspnet_Membership" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TN_Answer" EntityType="TRACNGHIEMModel.Store.TN_Answer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TN_Exam" EntityType="TRACNGHIEMModel.Store.TN_Exam" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TN_ExamQuestion" EntityType="TRACNGHIEMModel.Store.TN_ExamQuestion" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TN_ExamUser" EntityType="TRACNGHIEMModel.Store.TN_ExamUser" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TN_ExamUserAnswer" EntityType="TRACNGHIEMModel.Store.TN_ExamUserAnswer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TN_Question" EntityType="TRACNGHIEMModel.Store.TN_Question" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TN_User" EntityType="TRACNGHIEMModel.Store.TN_User" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="TRACNGHIEMModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_TN_Answer_TN_Question" Association="TRACNGHIEMModel.Store.FK_TN_Answer_TN_Question">
+            <End Role="TN_Question" EntitySet="TN_Question" />
+            <End Role="TN_Answer" EntitySet="TN_Answer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TN_ExamAnswer_TN_Answer" Association="TRACNGHIEMModel.Store.FK_TN_ExamAnswer_TN_Answer">
+            <End Role="TN_Answer" EntitySet="TN_Answer" />
+            <End Role="TN_ExamUserAnswer" EntitySet="TN_ExamUserAnswer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TN_ExamAnswer_TN_ExamUser" Association="TRACNGHIEMModel.Store.FK_TN_ExamAnswer_TN_ExamUser">
+            <End Role="TN_ExamUser" EntitySet="TN_ExamUser" />
+            <End Role="TN_ExamUserAnswer" EntitySet="TN_ExamUserAnswer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TN_ExamQuestion_TN_Exam" Association="TRACNGHIEMModel.Store.FK_TN_ExamQuestion_TN_Exam">
+            <End Role="TN_Exam" EntitySet="TN_Exam" />
+            <End Role="TN_ExamQuestion" EntitySet="TN_ExamQuestion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TN_ExamQuestion_TN_Question" Association="TRACNGHIEMModel.Store.FK_TN_ExamQuestion_TN_Question">
+            <End Role="TN_Question" EntitySet="TN_Question" />
+            <End Role="TN_ExamQuestion" EntitySet="TN_ExamQuestion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TN_ExamUser_TN_Exam" Association="TRACNGHIEMModel.Store.FK_TN_ExamUser_TN_Exam">
+            <End Role="TN_Exam" EntitySet="TN_Exam" />
+            <End Role="TN_ExamUser" EntitySet="TN_ExamUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TN_ExamUser_TN_User" Association="TRACNGHIEMModel.Store.FK_TN_ExamUser_TN_User">
+            <End Role="TN_User" EntitySet="TN_User" />
+            <End Role="TN_ExamUser" EntitySet="TN_ExamUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TN_ExamUserAnswer_TN_Question" Association="TRACNGHIEMModel.Store.FK_TN_ExamUserAnswer_TN_Question">
+            <End Role="TN_Question" EntitySet="TN_Question" />
+            <End Role="TN_ExamUserAnswer" EntitySet="TN_ExamUserAnswer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_aspnet_Membership" Association="TRACNGHIEMModel.Store.FK_User_aspnet_Membership">
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="aspnet_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="PasswordFormat" Type="int" Nullable="false" />
+          <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="MobilePIN" Type="nvarchar" MaxLength="16" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="LoweredEmail" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+          <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+          <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+          <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+          <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
+          <Property Name="Comment" Type="ntext" />
+        </EntityType>
+        <EntityType Name="TN_Answer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionID" Type="int" Nullable="false" />
+          <Property Name="Content" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="IsCorrect" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TN_Exam">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Content" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="QuestionCount" Type="int" Nullable="false" />
+          <Property Name="Time" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TN_ExamQuestion">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ExamID" Type="int" Nullable="false" />
+          <Property Name="QuestionID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TN_ExamUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ExamID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="JoinDate" Type="datetime" Nullable="false" />
+          <Property Name="Duration" Type="int" Nullable="false" />
+          <Property Name="CorrectCount" Type="int" Nullable="false" />
+          <Property Name="IsEnd" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TN_ExamUserAnswer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ExamUserID" Type="int" Nullable="false" />
+          <Property Name="QuestionID" Type="int" Nullable="false" />
+          <Property Name="AnswerID" Type="int" />
+        </EntityType>
+        <EntityType Name="TN_Question">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsMultiChoose" Type="bit" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TN_User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SBD" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="FullName" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AspnetUserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="250" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Company" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <Association Name="FK_TN_Answer_TN_Question">
+          <End Role="TN_Question" Type="TRACNGHIEMModel.Store.TN_Question" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TN_Answer" Type="TRACNGHIEMModel.Store.TN_Answer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TN_Question">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TN_Answer">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TN_ExamAnswer_TN_Answer">
+          <End Role="TN_Answer" Type="TRACNGHIEMModel.Store.TN_Answer" Multiplicity="0..1" />
+          <End Role="TN_ExamUserAnswer" Type="TRACNGHIEMModel.Store.TN_ExamUserAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TN_Answer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TN_ExamUserAnswer">
+              <PropertyRef Name="AnswerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TN_ExamAnswer_TN_ExamUser">
+          <End Role="TN_ExamUser" Type="TRACNGHIEMModel.Store.TN_ExamUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TN_ExamUserAnswer" Type="TRACNGHIEMModel.Store.TN_ExamUserAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TN_ExamUser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TN_ExamUserAnswer">
+              <PropertyRef Name="ExamUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TN_ExamQuestion_TN_Exam">
+          <End Role="TN_Exam" Type="TRACNGHIEMModel.Store.TN_Exam" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TN_ExamQuestion" Type="TRACNGHIEMModel.Store.TN_ExamQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TN_Exam">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TN_ExamQuestion">
+              <PropertyRef Name="ExamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TN_ExamQuestion_TN_Question">
+          <End Role="TN_Question" Type="TRACNGHIEMModel.Store.TN_Question" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TN_ExamQuestion" Type="TRACNGHIEMModel.Store.TN_ExamQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TN_Question">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TN_ExamQuestion">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TN_ExamUser_TN_Exam">
+          <End Role="TN_Exam" Type="TRACNGHIEMModel.Store.TN_Exam" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TN_ExamUser" Type="TRACNGHIEMModel.Store.TN_ExamUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TN_Exam">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TN_ExamUser">
+              <PropertyRef Name="ExamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TN_ExamUser_TN_User">
+          <End Role="TN_User" Type="TRACNGHIEMModel.Store.TN_User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TN_ExamUser" Type="TRACNGHIEMModel.Store.TN_ExamUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TN_User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TN_ExamUser">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TN_ExamUserAnswer_TN_Question">
+          <End Role="TN_Question" Type="TRACNGHIEMModel.Store.TN_Question" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TN_ExamUserAnswer" Type="TRACNGHIEMModel.Store.TN_ExamUserAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TN_Question">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TN_ExamUserAnswer">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_aspnet_Membership">
+          <End Role="aspnet_Membership" Type="TRACNGHIEMModel.Store.aspnet_Membership" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="User" Type="TRACNGHIEMModel.Store.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="AspnetUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TRACNGHIEMModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="TRACNGHIEMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TN_Answer" EntityType="TRACNGHIEMModel.TN_Answer" />
+          <EntitySet Name="TN_ExamQuestion" EntityType="TRACNGHIEMModel.TN_ExamQuestion" />
+          <EntitySet Name="TN_Question" EntityType="TRACNGHIEMModel.TN_Question" />
+          <EntitySet Name="TN_User" EntityType="TRACNGHIEMModel.TN_User" />
+          <AssociationSet Name="FK_TN_Answer_TN_Question" Association="TRACNGHIEMModel.FK_TN_Answer_TN_Question">
+            <End Role="TN_Question" EntitySet="TN_Question" />
+            <End Role="TN_Answer" EntitySet="TN_Answer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TN_ExamQuestion_TN_Question" Association="TRACNGHIEMModel.FK_TN_ExamQuestion_TN_Question">
+            <End Role="TN_Question" EntitySet="TN_Question" />
+            <End Role="TN_ExamQuestion" EntitySet="TN_ExamQuestion" />
+          </AssociationSet>
+          <EntitySet Name="User" EntityType="TRACNGHIEMModel.User" />
+          <EntitySet Name="aspnet_Membership" EntityType="TRACNGHIEMModel.aspnet_Membership" />
+          <AssociationSet Name="FK_User_aspnet_Membership" Association="TRACNGHIEMModel.FK_User_aspnet_Membership">
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <EntitySet Name="TN_ExamUserAnswer" EntityType="TRACNGHIEMModel.TN_ExamUserAnswer" />
+          <AssociationSet Name="FK_TN_ExamAnswer_TN_Answer" Association="TRACNGHIEMModel.FK_TN_ExamAnswer_TN_Answer">
+            <End Role="TN_Answer" EntitySet="TN_Answer" />
+            <End Role="TN_ExamUserAnswer" EntitySet="TN_ExamUserAnswer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TN_ExamUserAnswer_TN_Question" Association="TRACNGHIEMModel.FK_TN_ExamUserAnswer_TN_Question">
+            <End Role="TN_Question" EntitySet="TN_Question" />
+            <End Role="TN_ExamUserAnswer" EntitySet="TN_ExamUserAnswer" />
+          </AssociationSet>
+          <EntitySet Name="TN_Exam" EntityType="TRACNGHIEMModel.TN_Exam" />
+          <AssociationSet Name="FK_TN_ExamQuestion_TN_Exam" Association="TRACNGHIEMModel.FK_TN_ExamQuestion_TN_Exam">
+            <End Role="TN_Exam" EntitySet="TN_Exam" />
+            <End Role="TN_ExamQuestion" EntitySet="TN_ExamQuestion" />
+          </AssociationSet>
+          <EntitySet Name="TN_ExamUser" EntityType="TRACNGHIEMModel.TN_ExamUser" />
+          <AssociationSet Name="FK_TN_ExamUser_TN_Exam" Association="TRACNGHIEMModel.FK_TN_ExamUser_TN_Exam">
+            <End Role="TN_Exam" EntitySet="TN_Exam" />
+            <End Role="TN_ExamUser" EntitySet="TN_ExamUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TN_ExamAnswer_TN_ExamUser" Association="TRACNGHIEMModel.FK_TN_ExamAnswer_TN_ExamUser">
+            <End Role="TN_ExamUser" EntitySet="TN_ExamUser" />
+            <End Role="TN_ExamUserAnswer" EntitySet="TN_ExamUserAnswer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TN_ExamUser_TN_User" Association="TRACNGHIEMModel.FK_TN_ExamUser_TN_User">
+            <End Role="TN_User" EntitySet="TN_User" />
+            <End Role="TN_ExamUser" EntitySet="TN_ExamUser" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="TN_Answer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="QuestionID" Nullable="false" />
+          <Property Type="String" Name="Content" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsCorrect" Nullable="false" />
+          <NavigationProperty Name="TN_Question" Relationship="TRACNGHIEMModel.FK_TN_Answer_TN_Question" FromRole="TN_Answer" ToRole="TN_Question" />
+          <NavigationProperty Name="TN_ExamUserAnswer" Relationship="TRACNGHIEMModel.FK_TN_ExamAnswer_TN_Answer" FromRole="TN_Answer" ToRole="TN_ExamUserAnswer" />
+        </EntityType>
+        <EntityType Name="TN_ExamQuestion">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ExamID" Nullable="false" />
+          <Property Type="Int32" Name="QuestionID" Nullable="false" />
+          <NavigationProperty Name="TN_Question" Relationship="TRACNGHIEMModel.FK_TN_ExamQuestion_TN_Question" FromRole="TN_ExamQuestion" ToRole="TN_Question" />
+          <NavigationProperty Name="TN_Exam" Relationship="TRACNGHIEMModel.FK_TN_ExamQuestion_TN_Exam" FromRole="TN_ExamQuestion" ToRole="TN_Exam" />
+        </EntityType>
+        <EntityType Name="TN_Question">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Content" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsMultiChoose" Nullable="false" />
+          <Property Type="String" Name="Type" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TN_Answer" Relationship="TRACNGHIEMModel.FK_TN_Answer_TN_Question" FromRole="TN_Question" ToRole="TN_Answer" />
+          <NavigationProperty Name="TN_ExamQuestion" Relationship="TRACNGHIEMModel.FK_TN_ExamQuestion_TN_Question" FromRole="TN_Question" ToRole="TN_ExamQuestion" />
+          <NavigationProperty Name="TN_ExamUserAnswer" Relationship="TRACNGHIEMModel.FK_TN_ExamUserAnswer_TN_Question" FromRole="TN_Question" ToRole="TN_ExamUserAnswer" />
+        </EntityType>
+        <EntityType Name="TN_User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="SBD" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FullName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TN_ExamUser" Relationship="TRACNGHIEMModel.FK_TN_ExamUser_TN_User" FromRole="TN_User" ToRole="TN_ExamUser" />
+        </EntityType>
+        <Association Name="FK_TN_Answer_TN_Question">
+          <End Type="TRACNGHIEMModel.TN_Question" Role="TN_Question" Multiplicity="1" />
+          <End Type="TRACNGHIEMModel.TN_Answer" Role="TN_Answer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TN_Question">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TN_Answer">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TN_ExamQuestion_TN_Question">
+          <End Type="TRACNGHIEMModel.TN_Question" Role="TN_Question" Multiplicity="1" />
+          <End Type="TRACNGHIEMModel.TN_ExamQuestion" Role="TN_ExamQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TN_Question">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TN_ExamQuestion">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Guid" Name="AspnetUserId" Nullable="false" />
+          <Property Type="String" Name="FullName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PhoneNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Company" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="aspnet_Membership" Relationship="TRACNGHIEMModel.FK_User_aspnet_Membership" FromRole="User" ToRole="aspnet_Membership" />
+        </EntityType>
+        <EntityType Name="aspnet_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="PasswordFormat" Nullable="false" />
+          <Property Type="String" Name="PasswordSalt" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MobilePIN" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LoweredEmail" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PasswordQuestion" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PasswordAnswer" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsApproved" Nullable="false" />
+          <Property Type="Boolean" Name="IsLockedOut" Nullable="false" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" />
+          <Property Type="DateTime" Name="LastLoginDate" Nullable="false" />
+          <Property Type="DateTime" Name="LastPasswordChangedDate" Nullable="false" />
+          <Property Type="DateTime" Name="LastLockoutDate" Nullable="false" />
+          <Property Type="Int32" Name="FailedPasswordAttemptCount" Nullable="false" />
+          <Property Type="DateTime" Name="FailedPasswordAttemptWindowStart" Nullable="false" />
+          <Property Type="Int32" Name="FailedPasswordAnswerAttemptCount" Nullable="false" />
+          <Property Type="DateTime" Name="FailedPasswordAnswerAttemptWindowStart" Nullable="false" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="TRACNGHIEMModel.FK_User_aspnet_Membership" FromRole="aspnet_Membership" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_User_aspnet_Membership">
+          <End Type="TRACNGHIEMModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="1" />
+          <End Type="TRACNGHIEMModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="AspnetUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TN_ExamUserAnswer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ExamUserID" Nullable="false" />
+          <Property Type="Int32" Name="QuestionID" Nullable="false" />
+          <Property Type="Int32" Name="AnswerID" />
+          <NavigationProperty Name="TN_Answer" Relationship="TRACNGHIEMModel.FK_TN_ExamAnswer_TN_Answer" FromRole="TN_ExamUserAnswer" ToRole="TN_Answer" />
+          <NavigationProperty Name="TN_Question" Relationship="TRACNGHIEMModel.FK_TN_ExamUserAnswer_TN_Question" FromRole="TN_ExamUserAnswer" ToRole="TN_Question" />
+          <NavigationProperty Name="TN_ExamUser" Relationship="TRACNGHIEMModel.FK_TN_ExamAnswer_TN_ExamUser" FromRole="TN_ExamUserAnswer" ToRole="TN_ExamUser" />
+        </EntityType>
+        <Association Name="FK_TN_ExamAnswer_TN_Answer">
+          <End Type="TRACNGHIEMModel.TN_Answer" Role="TN_Answer" Multiplicity="0..1" />
+          <End Type="TRACNGHIEMModel.TN_ExamUserAnswer" Role="TN_ExamUserAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TN_Answer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TN_ExamUserAnswer">
+              <PropertyRef Name="AnswerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TN_ExamUserAnswer_TN_Question">
+          <End Type="TRACNGHIEMModel.TN_Question" Role="TN_Question" Multiplicity="1" />
+          <End Type="TRACNGHIEMModel.TN_ExamUserAnswer" Role="TN_ExamUserAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TN_Question">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TN_ExamUserAnswer">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TN_Exam">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Content" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="StartDate" Nullable="false" />
+          <Property Type="DateTime" Name="EndDate" Nullable="false" />
+          <Property Type="Int32" Name="QuestionCount" Nullable="false" />
+          <Property Type="Int32" Name="Time" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <NavigationProperty Name="TN_ExamQuestion" Relationship="TRACNGHIEMModel.FK_TN_ExamQuestion_TN_Exam" FromRole="TN_Exam" ToRole="TN_ExamQuestion" />
+          <NavigationProperty Name="TN_ExamUser" Relationship="TRACNGHIEMModel.FK_TN_ExamUser_TN_Exam" FromRole="TN_Exam" ToRole="TN_ExamUser" />
+        </EntityType>
+        <Association Name="FK_TN_ExamQuestion_TN_Exam">
+          <End Type="TRACNGHIEMModel.TN_Exam" Role="TN_Exam" Multiplicity="1" />
+          <End Type="TRACNGHIEMModel.TN_ExamQuestion" Role="TN_ExamQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TN_Exam">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TN_ExamQuestion">
+              <PropertyRef Name="ExamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TN_ExamUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ExamID" Nullable="false" />
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="DateTime" Name="JoinDate" Nullable="false" />
+          <Property Type="Int32" Name="Duration" Nullable="false" />
+          <Property Type="Int32" Name="CorrectCount" Nullable="false" />
+          <Property Type="Boolean" Name="IsEnd" Nullable="false" />
+          <NavigationProperty Name="TN_Exam" Relationship="TRACNGHIEMModel.FK_TN_ExamUser_TN_Exam" FromRole="TN_ExamUser" ToRole="TN_Exam" />
+          <NavigationProperty Name="TN_ExamUserAnswer" Relationship="TRACNGHIEMModel.FK_TN_ExamAnswer_TN_ExamUser" FromRole="TN_ExamUser" ToRole="TN_ExamUserAnswer" />
+          <NavigationProperty Name="TN_User" Relationship="TRACNGHIEMModel.FK_TN_ExamUser_TN_User" FromRole="TN_ExamUser" ToRole="TN_User" />
+        </EntityType>
+        <Association Name="FK_TN_ExamUser_TN_Exam">
+          <End Type="TRACNGHIEMModel.TN_Exam" Role="TN_Exam" Multiplicity="1" />
+          <End Type="TRACNGHIEMModel.TN_ExamUser" Role="TN_ExamUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TN_Exam">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TN_ExamUser">
+              <PropertyRef Name="ExamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TN_ExamAnswer_TN_ExamUser">
+          <End Type="TRACNGHIEMModel.TN_ExamUser" Role="TN_ExamUser" Multiplicity="1" />
+          <End Type="TRACNGHIEMModel.TN_ExamUserAnswer" Role="TN_ExamUserAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TN_ExamUser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TN_ExamUserAnswer">
+              <PropertyRef Name="ExamUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TN_ExamUser_TN_User">
+          <End Type="TRACNGHIEMModel.TN_User" Role="TN_User" Multiplicity="1" />
+          <End Type="TRACNGHIEMModel.TN_ExamUser" Role="TN_ExamUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TN_User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TN_ExamUser">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TRACNGHIEMModelStoreContainer" CdmEntityContainer="TRACNGHIEMEntities">
+          <EntitySetMapping Name="TN_Answer">
+            <EntityTypeMapping TypeName="TRACNGHIEMModel.TN_Answer">
+              <MappingFragment StoreEntitySet="TN_Answer">
+                <ScalarProperty Name="IsCorrect" ColumnName="IsCorrect" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TN_ExamQuestion">
+            <EntityTypeMapping TypeName="TRACNGHIEMModel.TN_ExamQuestion">
+              <MappingFragment StoreEntitySet="TN_ExamQuestion">
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="ExamID" ColumnName="ExamID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TN_Question">
+            <EntityTypeMapping TypeName="TRACNGHIEMModel.TN_Question">
+              <MappingFragment StoreEntitySet="TN_Question">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="IsMultiChoose" ColumnName="IsMultiChoose" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TN_User">
+            <EntityTypeMapping TypeName="TRACNGHIEMModel.TN_User">
+              <MappingFragment StoreEntitySet="TN_User">
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="SBD" ColumnName="SBD" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="TRACNGHIEMModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="AspnetUserId" ColumnName="AspnetUserId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Membership">
+            <EntityTypeMapping TypeName="TRACNGHIEMModel.aspnet_Membership">
+              <MappingFragment StoreEntitySet="aspnet_Membership">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+                <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+                <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+                <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+                <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+                <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+                <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+                <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TN_ExamUserAnswer">
+            <EntityTypeMapping TypeName="TRACNGHIEMModel.TN_ExamUserAnswer">
+              <MappingFragment StoreEntitySet="TN_ExamUserAnswer">
+                <ScalarProperty Name="AnswerID" ColumnName="AnswerID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="ExamUserID" ColumnName="ExamUserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TN_Exam">
+            <EntityTypeMapping TypeName="TRACNGHIEMModel.TN_Exam">
+              <MappingFragment StoreEntitySet="TN_Exam">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="QuestionCount" ColumnName="QuestionCount" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TN_ExamUser">
+            <EntityTypeMapping TypeName="TRACNGHIEMModel.TN_ExamUser">
+              <MappingFragment StoreEntitySet="TN_ExamUser">
+                <ScalarProperty Name="IsEnd" ColumnName="IsEnd" />
+                <ScalarProperty Name="CorrectCount" ColumnName="CorrectCount" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ExamID" ColumnName="ExamID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1">
+        <EntityTypeShape EntityType="TRACNGHIEMModel.TN_Answer" Width="1.5" PointX="3" PointY="3.625" Height="2.172587890624996" />
+        <EntityTypeShape EntityType="TRACNGHIEMModel.TN_ExamQuestion" Width="1.5" PointX="3" PointY="0.75" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="TRACNGHIEMModel.TN_Question" Width="1.5" PointX="0.75" PointY="3.5" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="TRACNGHIEMModel.TN_User" Width="1.5" PointX="0.75" PointY="11.875" Height="1.7879850260416674" />
+        <AssociationConnector Association="TRACNGHIEMModel.FK_TN_Answer_TN_Question" >
+          <ConnectorPoint PointX="2.25" PointY="4.7112939453125" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="4.7112939453124989" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="4.7112939453125" />
+          <ConnectorPoint PointX="3" PointY="4.7112939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="TRACNGHIEMModel.FK_TN_ExamQuestion_TN_Question" >
+          <ConnectorPoint PointX="1.5" PointY="3.5" />
+          <ConnectorPoint PointX="1.5" PointY="1.7401432291666694" />
+          <ConnectorPoint PointX="3" PointY="1.7401432291666694" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="TRACNGHIEMModel.User" Width="1.5" PointX="5.375" PointY="6.75" Height="2.1725878906250102" />
+        <EntityTypeShape EntityType="TRACNGHIEMModel.aspnet_Membership" Width="1.5" PointX="5.625" PointY="10.25" Height="5.4417122395833388" />
+        <AssociationConnector Association="TRACNGHIEMModel.FK_User_aspnet_Membership" >
+          <ConnectorPoint PointX="6.25" PointY="10.25" />
+          <ConnectorPoint PointX="6.25" PointY="9.1148893229166656" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="TRACNGHIEMModel.TN_ExamUserAnswer" Width="1.5" PointX="8.25" PointY="6.625" Height="2.3648893229166674" />
+        <AssociationConnector Association="TRACNGHIEMModel.FK_TN_ExamAnswer_TN_Answer" >
+          <ConnectorPoint PointX="4.5" PointY="4.711293945312498" />
+          <ConnectorPoint PointX="8.5937475" PointY="4.711293945312498" />
+          <ConnectorPoint PointX="8.5937475" PointY="6.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="TRACNGHIEMModel.FK_TN_ExamUserAnswer_TN_Question" >
+          <ConnectorPoint PointX="2.25" PointY="3.53125" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="3.5312499999999996" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="3.53125" />
+          <ConnectorPoint PointX="9.20312625" PointY="3.53125" />
+          <ConnectorPoint PointX="9.20312625" PointY="6.625" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="TRACNGHIEMModel.TN_Exam" Width="1.5" PointX="0.75" PointY="7" Height="2.9417936197916674" />
+        <AssociationConnector Association="TRACNGHIEMModel.FK_TN_ExamQuestion_TN_Exam" >
+          <ConnectorPoint PointX="2.2500000000000018" PointY="7" />
+          <ConnectorPoint PointX="2.625" PointY="6.6250000000000018" />
+          <ConnectorPoint PointX="2.625" PointY="2.266466843750004" />
+          <ConnectorPoint PointX="3" PointY="2.266466843750004" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="TRACNGHIEMModel.TN_ExamUser" Width="1.5" PointX="3" PointY="8.875" Height="2.9417936197916674" />
+        <AssociationConnector Association="TRACNGHIEMModel.FK_TN_ExamUser_TN_Exam" >
+          <ConnectorPoint PointX="2.25" PointY="9.4083968098958337" />
+          <ConnectorPoint PointX="3" PointY="9.4083968098958337" />
+        </AssociationConnector>
+        <AssociationConnector Association="TRACNGHIEMModel.FK_TN_ExamAnswer_TN_ExamUser" >
+          <ConnectorPoint PointX="4.5" PointY="9.6824446614583337" />
+          <ConnectorPoint PointX="6.166666666666667" PointY="9.6824446614583337" />
+          <ConnectorPoint PointX="6.333333333333333" PointY="9.6824446614583337" />
+          <ConnectorPoint PointX="9" PointY="9.6824446614583337" />
+          <ConnectorPoint PointX="9" PointY="8.9898893229166656" />
+        </AssociationConnector>
+        <AssociationConnector Association="TRACNGHIEMModel.FK_TN_ExamUser_TN_User" >
+          <ConnectorPoint PointX="2.25" PointY="12.768992513020834" />
+          <ConnectorPoint PointX="3.75" PointY="12.768992513020834" />
+          <ConnectorPoint PointX="3.75" PointY="11.816793619791667" />
+        </AssociationConnector>
+        </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Bộ y tế - Bệnh viện 74 TW </title>
+    <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Home.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Content/jquery-1.11.2.min.js")" type="text/javascript"></script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="wrap-index">
+            @if (Request.IsAuthenticated && MVC_CMS.Controllers.AccountController.IsAdmin)
+            {
+                <div class="header w960 ol pdl25" style="line-height: 45px;">
+                    @Html.Partial("LogOnUserControl")
+                </div>
+            }
+            <div class="banner">
+            </div>
+            <div class="main">
+                <div class="conc">
+                    <div class="mgl25">
+                        <div class="clear">
+                        </div>
+                    </div>
+                    <div class="fromregedit">
+                        @RenderBody()
+                    </div>
+                    <div class="clear">
+                    </div>
+                    <br />
+                    <br />
+                </div>
+            </div>
+            <div class="footer">
+                <span>Chỉ đạo thiết kế: </span><b>Trần Thành Trung</b>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

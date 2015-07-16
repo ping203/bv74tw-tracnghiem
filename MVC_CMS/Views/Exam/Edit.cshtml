@@ -1,0 +1,49 @@
+﻿@{ Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using MVC_CMS.Models;
+@using MvcPaging;
+@model TN_Exam
+<h2>
+    Sửa cuộc thi</h2>
+@using (Html.BeginForm())
+{ 
+    <fieldset>
+        <div>
+            <p>
+                @Html.ValidationSummary(true, "Sửa cuộc thi không thành công. Vui lòng kiểm tra và thử lại.")
+            </p>
+            <div class="form-group">
+                <label>
+                    Tên cuộc thi:</label>
+                @Html.TextBoxFor(m => m.Content, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Content)
+            </div>
+            <div class="form-group">
+                <label>
+                    Số lượng câu hỏi:</label>
+                @Html.TextBoxFor(m => m.QuestionCount, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.QuestionCount)
+            </div>
+            <div class="form-group">
+                <label>
+                    Thời gian thi (tính bằng phút):</label>
+                @Html.TextBoxFor(m => m.Time, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Time)
+            </div>
+            <div class="form-group">
+                <label>
+                    Ngày bắt đầu(ngày/tháng/năm):</label>
+                @Html.TextBoxFor(m => m.StartDate, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.StartDate)
+            </div>
+            <div class="form-group">
+                <label>
+                    Ngày kết thúc(ngày/tháng/năm):</label>
+                @Html.TextBoxFor(m => m.EndDate, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.EndDate)
+            </div>
+            <input type="submit" value="Sửa cuộc thi" class=" btn-primary btn" />
+            @Html.ActionLink("Trở lại danh sách", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    </fieldset>
+}

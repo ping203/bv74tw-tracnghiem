@@ -1,0 +1,74 @@
+﻿/* Pager */
+.pager
+{
+    margin: 8px 3px;
+    padding: 3px;
+}
+
+.pager .disabled
+{
+    background:url(/Content/Images/dot-phantrang.png) top left no-repeat;
+    border: 1px solid #009;
+    color: #ffffff;
+    width:25px;
+    height:19px;
+    font-weight: bold;
+    margin-top: 4px;
+    padding: 0px 0px;
+    text-align: center;
+    padding-right:7px;
+    padding-left:7px;
+     padding-top:3px;
+    padding-bottom:3px;
+    border:none;
+    font-family:Tahoma; font-size:12px;
+}
+.pager .disabled:hover{ background:url(/Content/Images/dot-phantrang.png) bottom left no-repeat;}
+.pager .current
+{
+    background:url(/Content/Images/dot-phantrang.png) bottom left no-repeat;
+    border: 1px solid #009;
+    color: #ffffff;
+    width:25px;
+    height:19px;
+    font-weight: bold;
+    margin-top: 4px;
+    padding: 0px 0px;
+    text-align: center;
+    padding-right:7px;
+    padding-left:7px;
+    padding-top:3px;
+    padding-bottom:3px;
+    border:none;
+    font-family:Tahoma; font-size:12px;
+}
+
+.pager span, .pager a
+{
+    margin: 4px 3px;
+}
+
+.pager a
+{
+    background:url(/Content/Images/dot-phantrang.png) top left no-repeat;
+    border: 1px solid #009;
+    color: #000000;
+    width:25px;
+    height:19px;
+    font-weight: bold;
+    margin-top: 4px;
+    padding: 0px 0px;
+    text-align: center;
+    padding-right:7px;
+    padding-left:7px;
+    padding-top:3px;
+    padding-bottom:3px;
+    border:none;
+    font-family:Tahoma; font-size:12px;
+    font-weight:normal;
+}
+
+.pager a:hover{
+
+    background:url(/Content/Images/dot-phantrang.png) bottom left no-repeat;
+}

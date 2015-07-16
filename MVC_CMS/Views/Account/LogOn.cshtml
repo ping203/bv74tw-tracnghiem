@@ -1,0 +1,36 @@
+﻿
+@model MVC_CMS.Models.LogOnModel
+@using (Html.BeginForm("LogOn", "Account", FormMethod.Post, new { @name = "LogOnForm" }))
+{
+<div style="line-height: 30px; font-size: 16px;" class="fwb">
+    ĐĂNG NHẬP</div>
+<p>
+    <font style="color: Red">
+        @Html.ValidationSummary(true, "Đăng nhập thất bại! Hãy kiểm tra lỗi và thử lại.")
+    </font>
+</p>
+<p>
+    <label>
+        Tên đăng nhập:</label>
+    @Html.TextBoxFor(m => m.UserName, new { @class = "fl w250", @maxlength = "256" })
+    <span class="requided">
+        @Html.ValidationMessageFor(m => m.UserName, "*")</span>
+</p>
+<p>
+    <label>
+        Mật khẩu:</label>
+    @Html.PasswordFor(m => m.Password, new { @class = "fl w250", @maxlength = "256" })
+    <span class="requided">
+        @Html.ValidationMessageFor(m => m.Password, "*") </span>
+</p>
+<p class="checkbox-fix">
+    <label>
+        Nhớ mật khẩu?</label>
+    @Html.CheckBoxFor(m => m.RememberMe)
+</p>
+
+<div class="button-large ">
+    <input type="submit" value="Đăng nhập" />
+</div>
+
+}

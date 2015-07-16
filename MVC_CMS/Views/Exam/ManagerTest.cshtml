@@ -1,0 +1,51 @@
+﻿@{ Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model List<MVC_CMS.Models.TN_ExamUser>
+<h2>
+    Quản lý bài thi</h2>
+<a href="@Url.Action("ExportAllPDF", "Exam")" class="btn btn-primary">Báo cáo tổng hợp</a>
+@if (Model != null && Model.Count > 0)
+{    
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    Họ tên
+                </th>
+                <th>
+                    Số báo danh
+                </th>
+                <th>
+                    <a href="@Url.Action("ManagerTest", new { order = true })">Số câu trả lời đúng / Tổng số câu <span class="glyphicon glyphicon-triangle-bottom"></span></a>
+                </th>
+                <th>
+                    Xuất báo cáo (PDF)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{var count = Model[0].TN_Exam.QuestionCount;
+              foreach (var item in Model)
+              {
+                <tr>
+                    <td>
+                        @item.TN_User.FullName
+                    </td>
+                    <td>
+                        @item.TN_User.SBD
+                    </td>
+                    <td>
+                        @item.CorrectCount / @count
+                    </td>
+                    <td>
+                        <a href="@Url.Action("ExportPDF", new { tnExamUserID = item.ID })" target="_blank">Download</a>
+                        | <a href="@Url.Action("RemoveTest", new { tnExamUserID = item.ID })"  onclick="return confirm('Bạn có chắc muốn hủy bài thi của @("\"" + item.TN_User.FullName + "\"")?');">
+                            Hủy bài thi</a> | <a href="@Url.Action("AddTimeForUser", new { tnExamUserID = item.ID })">
+                                Bù giờ</a>
+                    </td>
+                </tr>
+              }
+            }
+        </tbody>
+    </table>
+}

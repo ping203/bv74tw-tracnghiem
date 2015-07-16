@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Bộ y tế - Bệnh viện 74 TW </title>
+    <link href="/Content/bootstrapadmin.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/StylePager.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/admin.css" rel="stylesheet" type="text/css" />    
+    <script src="/Content/jquery-1.11.2.min.js" type="text/javascript"></script>    
+</head>
+<body>
+    <div class="wrapper-admin">
+        @if (Request.IsAuthenticated && MVC_CMS.Controllers.AccountController.IsAdmin)
+        {
+            <div class="header w960 ol pdl25" style="line-height: 45px;">
+                @Html.Partial("LogOnUserControl")
+            </div>
+        }
+        <div class="col-md-12">
+            <div class="col-md-3 left-admin">
+                <ul>
+                    <li><a href="@Url.Action("ManagerTest", "Exam")" data-href="/AddTimeForUser">Quản trị bài thi</a></li>
+                    <li><a href="@Url.Action("Index", "Exam")" data-href="/Index/Create/Edit">Quản trị cuộc thi</a></li>
+                    <li><a href="@Url.Action("Index", "Question")" data-href="/Index/Create/CreateQuestionFromExcelFile/Edit">Quản trị câu hỏi</a></li>
+                    @*<li><a href="@Url.Action("Index", "Account")" data-href="/Index">Quản trị người dùng</a></li>*@
+                </ul>
+            </div>
+            <div class="col-md-9 right-admin">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("a", ".left-admin ").each(function () {
+            var actionName = "@(ViewContext.RouteData.Values["controller"])";
+            var controllerName = "@(ViewContext.RouteData.Values["action"])";
+            var $this = $(this);
+            var getLink = $this.attr("href") + $this.attr("data-href") + "/";
+            if (getLink.indexOf("/"+actionName+"/") != -1 && getLink.indexOf("/"+controllerName+"/") != -1) {
+                $this.addClass("admin-active");
+            }
+        });
+    });
+</script>

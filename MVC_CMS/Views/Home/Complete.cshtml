@@ -1,0 +1,72 @@
+﻿@model MVC_CMS.Models.TN_ExamUser
+<h2>
+    KẾT QUẢ BÀI THI</h2>
+@if (Model != null && Model.TN_ExamUserAnswer != null && Model.TN_User != null)
+{
+    <h3>
+        Họ tên: <span>@Model.TN_User.FullName</span></h3>
+    <h3>
+        Số báo danh: <span>@Model.TN_User.SBD</span></h3>
+    <h3>
+        Kết quả bài thi: <span class="kq-ok">@ViewBag.KetQua</span></h3>
+    <table class="table table-bordered" border="0" cellpadding="0" cellspacing="0" style="background: white;
+        width: 50%;">
+        <thead>
+            <tr>
+                <th>
+                    Câu hỏi
+                </th>
+                <th>
+                    Trả lời
+                </th>
+                <th>
+                    Đáp án đúng
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{  
+                                        string[] getAnswer = { "A", "B", "C", "D", "E", "F", "G", "H" };
+                                        var listQuestion = Model.TN_ExamUserAnswer;
+                                        for (int i = 0; i < listQuestion.Count; i++)
+                                        {
+                                            var quest = listQuestion.ElementAt(i).TN_Question;
+                                            var answerTrue = quest != null && quest.TN_Answer != null && quest.TN_Answer.Count > 0 ? quest.TN_Answer : null;
+                                            if (answerTrue != null)
+                                            {
+                <tr>
+                    <td>
+                        Câu @(i + 1)
+                    </td>
+                    <td>
+                        @for (int j = 0; j < answerTrue.Count; j++)
+                        {
+                            if (answerTrue.ElementAt(j).ID == listQuestion.ElementAt(i).AnswerID)
+                            {
+                            @(getAnswer[j])
+                        break;
+                            }
+                        }
+                    </td>
+                    <td>
+                        @for (int j = 0; j < answerTrue.Count; j++)
+                        {
+                            if (answerTrue.ElementAt(j).IsCorrect)
+                            {
+                            @(getAnswer[j])
+                        break;
+                            }
+                        }
+                    </td>
+                </tr>
+                                            }
+                                        }
+            }
+        </tbody>
+    </table>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".footer").css('position', 'inherit');
+        });
+    </script>
+}

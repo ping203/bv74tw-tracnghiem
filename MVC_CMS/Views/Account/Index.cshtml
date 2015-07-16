@@ -1,0 +1,77 @@
+﻿@{ Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+   }
+@model MvcPaging.IPagedList<MVC_CMS.Models.UserModel>
+@using MvcPaging
+@using MVC_CMS.Models
+@using MVC_CMS.Controllers
+<h2>
+    Quản lý tài khoản</h2>
+<table cellpadding="0" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th style="width: 5%; text-align: center">
+                Quyền
+            </th>
+            <th style="width: 5%; text-align: center">
+                Sửa
+            </th>
+            <th style="width: 5%; text-align: center">
+                Xóa
+            </th>
+            <th style="width: 15%">
+                Tên tài khoản
+            </th>
+            <th style="width: 15%">
+                Họ và tên
+            </th>
+            <th style="width: 15%">
+                Email
+            </th>
+            <th style="width: 10%">
+                Điện thoại
+            </th>
+            <th>
+                Địa chỉ
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (UserModel userModel in Model)
+        {                
+            
+            <tr>
+                <td align="center">
+                    <a href='@Url.Action("Permistion", "Account", new { id = userModel.Id }) '>
+                        <img src="@Url.Content("~/Content/Images/key.jpg")" alt="Phân quyền" width="22" height="22" style="border: none;
+                            outline: none;" /></a>
+                </td>
+                <td align="center">
+                    <a href='@Url.Action("EditUser", "Account", new { id = userModel.Id }) '>
+                        <img src="@Url.Content("~/Content/Images/edititem.jpg")" alt="Sửa" style="border: none; outline: none;" /></a>
+                </td>
+                <td align="center">
+                    <a onclick="return confirm('Bạn có muốn xóa tài khoản này không?');" href='@Url.Action("Delete", "Account", new { id = userModel.Id }) '>
+                        <img src="@Url.Content("~/Content/Images/delitem.jpg")" alt="Xóa" style="border: none; outline: none;" /></a>
+                </td>
+                <td>
+                    @Html.Encode(userModel.UserName)
+                </td>
+                <td>
+                    @Html.Encode(userModel.FullName)
+                </td>
+                <td>
+                    @Html.Encode(userModel.Email)
+                </td>
+                <td>
+                    @Html.Encode(userModel.PhoneNumber)
+                </td>
+                <td>
+                    @Html.Encode(userModel.Address)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p class="pager">
+    @Html.Raw(Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount))
+</p>

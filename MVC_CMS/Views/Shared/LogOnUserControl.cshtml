@@ -1,0 +1,27 @@
+﻿@using MVC_CMS.Models
+@if (Request.IsAuthenticated)
+{
+    var currentUser = MVC_CMS.Controllers.AccountController.CurrentUser;
+    string url = currentUser.FullName != null ? currentUser.FullName : Page.User.Identity.Name;
+    <div>
+        [Xin chào: @Html.ActionLink(url, "UserDetail", "Account", new { }, new { @class = "clf0 fwb" })]
+        [@Html.ActionLink("Đăng xuất", "LogOff", "Account", new { }, new { @class = "clf0 fwb" })]
+        [@Html.ActionLink("Trang chủ", "Index", "Home", new { }, new { @class = "clf0 fwb" })
+        ] 
+        @if (Roles.IsUserInRole(RoleList.Admin) || Roles.IsUserInRole(RoleList.SuperAdmin))
+        { 
+            <span>
+                [@Html.ActionLink("Quản trị hệ thống", "Index", "Question", new { }, new { @class = "clf0 fwb" })]
+            </span>            
+        }
+    </div>
+        
+
+}
+else
+{
+    <div>
+        [@Html.ActionLink("Đăng nhập", "LogOn", "Account", new { }, new { @class = "clf0 fwb" })]
+        [@Html.ActionLink("Đăng ký", "Register", "Account", new { }, new { @class = "clf0 fwb" })]
+    </div>
+}

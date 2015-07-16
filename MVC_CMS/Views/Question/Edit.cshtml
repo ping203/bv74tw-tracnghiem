@@ -1,0 +1,69 @@
+﻿@{ Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using MVC_CMS.Models;
+@using MvcPaging;
+@model TN_Question
+<h2>
+    Câu hỏi</h2>
+<script type="text/javascript" src="@Url.Content("~/Scripts/ckeditor/ckeditor.js")"></script>
+@using (Html.BeginForm("Edit", "Question", new { id = Model.ID }, FormMethod.Post))
+{ 
+    <div class="form-group">
+        <label>
+            Nội dung câu hỏi:</label>
+        @Html.TextAreaFor(m => m.Content, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Content)
+    </div>
+    <div class="form-group">
+        <label>
+            Loại câu hỏi:</label>
+        <select name="Type" class="form-control">
+            <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+        </select>
+        @Html.ValidationMessageFor(m => m.Content)
+    </div>
+    <input type="submit" value="Lưu câu hỏi" class="btn btn-primary" />
+}
+<br />
+@using (Html.BeginForm("SaveAnswer", "Question", new { id = Model.ID }, FormMethod.Post))
+{
+    <h4>
+        Đáp án trả lời</h4>
+    @Html.ValidationSummary(true, "Chưa thành công. Vui lòng kiểm tra và thử lại.")        
+int count = Model.TN_Answer.Count;
+for (int i = 0; i < count; i++)
+{
+    var answer = Model.TN_Answer.ElementAt(i);
+    <div class="form-group">
+        <label class="radio-inline">
+            @Html.RadioButton("rb" + Model.ID.ToString(), answer.Content, answer.IsCorrect)
+            @Html.TextArea("txt" + answer.ID.ToString(), answer.Content, new { @rows = "1", @cols = "90", @class = "form-control" })
+            <a onclick="return confirm('Bạn có muốn xóa đáp án này không?');" 
+        href='@Url.Action("DeleteAnswer", "Question", new { id = Model.ID, answerID = answer.ID }) '
+        class="deleteItemAnswer">
+                <img src="@Url.Content("~/Content/Images/delitem.gif")" alt="Xóa" style="border: none; outline: none;" /></a>
+        </label>
+    </div>    
+}
+    <div>
+        @if (ViewData["AddAnswer"] != null && (bool)ViewData["AddAnswer"] == true)
+        {
+                
+            @Html.RadioButton("rb" + Model.ID.ToString(), "AddAnswer", false)
+            @Html.TextArea("txtAddAnswer", "", new { @rows = "1", @cols = "90" }) 
+            <a onclick="return confirm('Bạn có muốn xóa đáp án này không?');" href='@Url.Action("DeleteAnswer", "Question", new { id = Model.ID, answerID = 0 }) '>
+                <img src="@Url.Content("~/Content/Images/delitem.gif")" alt="Xóa" style="border: none; outline: none;" /></a>
+        }
+    </div>
+    <input type="submit" value="Lưu đáp án" class="btn btn-primary btn-xs" />
+}
+<br />
+<a href="@Url.Action("AddAnswer", "Question", new { id = Model.ID })" class="btn btn-primary btn-xs">
+    <i class="glyphicon glyphicon-plus"></i>Thêm đáp án</a>
+<br />
+@Html.ActionLink("Trở lại danh sách", "Index", null, new { @class = "btn btn-default" })
